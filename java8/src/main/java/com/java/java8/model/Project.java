@@ -10,6 +10,16 @@ public class Project {
     Period period;
     Integer teamSize;
 
+    @Override
+    public String toString() {
+        return "Project{" +
+                "name='" + name + '\'' +
+                ", startDate=" + startDate +
+                ", period=" + period.getYears() +
+                ", teamSize=" + teamSize +
+                '}';
+    }
+
     public Project(String name, LocalDate startDate, Period period, Integer teamSize) {
         this.name = name;
         this.startDate = startDate;

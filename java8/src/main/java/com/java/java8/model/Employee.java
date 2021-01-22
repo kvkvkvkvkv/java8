@@ -3,21 +3,25 @@ package com.java.java8.model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 public class Employee {
 
-    String name;
-    Long salary;
-    String department;
-    Integer age;
-    String gender;
-    Project project;
+    private String name;
+    private Long salary;
+    private String department;
+    private Integer age;
+    private String gender;
+    private LocalDate startDate;
+    private Project project;
 
-    public Employee(String name, Long salary, String department, Integer age, String gender, Project project) {
+    public Employee(String name, Long salary, String department, Integer age, String gender,LocalDate startDate, Project project) {
         this.name = name;
         this.salary = salary;
         this.department = department;
         this.age = age;
         this.gender = gender;
+        this.startDate = startDate;
         this.project = project;
     }
 
@@ -49,6 +53,19 @@ public class Employee {
         return age;
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", salary=" + salary +
+                ", department='" + department + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                ", startDate=" + startDate +
+                ", project=" + project +
+                '}';
+    }
+
     public void setAge(Integer age) {
         this.age = age;
     }
@@ -60,15 +77,20 @@ public class Employee {
     public void setGender(String gender) {
         this.gender = gender;
     }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", salary=" + salary +
-                ", department='" + department + '\'' +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                '}';
+    public LocalDate getStartDate() {
+        return startDate;
     }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
 }
