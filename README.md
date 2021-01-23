@@ -26,3 +26,26 @@ Applying functinaly interfaces and chaining for
         - [x]  andThen()
     - [x]  accept()
     - [x]  Use cases
+    
+    
+- [x]  Bi Functional
+    - [x]  Bi Predicate
+        - [x]  Chaining
+            - [x]  and()
+            - [x]  negate()
+            - [x]  or()
+            - [x]  isEqual() - not present
+        - [x]  test()
+        - [x]  Use cases
+    - [x]  Bi Function
+        - [x]  Chaining
+            - [x]  andThen()
+            - [x]  identity()- not present
+            - [x]  compose() - not present
+        - [x]  apply()
+        - [x]  Use cases
+    - [x]  Bi Consumer
+        - [x]  Chaining
+            - [x]  andThen()
+        - [x]  accept()
+        - [x]  Use cases
