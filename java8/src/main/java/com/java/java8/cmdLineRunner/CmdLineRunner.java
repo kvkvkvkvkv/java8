@@ -73,5 +73,35 @@ public class CmdLineRunner implements CommandLineRunner {
 
         log.info("***********************Increment Age and Salary**********************");
         employeeService.incrementAgeAndSalary(Java8Application.employees).forEach(print);
+
+        log.info("***********************HR in Project 1**********************");
+        projectService.getHrinProject1(Java8Application.employees).forEach(print);
+
+        log.info("***********************HR in Project 1 or Project 2**********************");
+        projectService.getHrinProjec1orProject2(Java8Application.employees).forEach(print);
+
+        log.info("***********************Not HR in Project 1**********************");
+        projectService.getnotHrInProject1(Java8Application.employees).forEach(print);
+
+        log.info("***********************HR in Project 1 and Sal above 3000**********************");
+        projectService.getHrInProject1AndSalaryAbove3000(Java8Application.employees).forEach(print);
+
+        log.info("***********************All EMP***********************");
+        employeeService.getEmployeeNames(Java8Application.employees).forEach(print);
+
+        log.info("***********************Period > 5***********************");
+        projectService.getPeriodMoreThan5(Java8Application.employees).forEach(print);
+
+        log.info("***********************Get All starts with S***********************");
+        projectService.getAllInProject1AndNameStartsWithS(Java8Application.employees).forEach(print);
+
+        log.info("***********************Update Age and Size***********************");
+        projectService.updateAgeAndSize(Java8Application.employees);
+
+        log.info("***********************Update Sal and Period***********************");
+        projectService.updateSalandPeriod(Java8Application.employees);
+
+        log.info("***********************All EMP***********************");
+        employeeService.getEmployeeNames(Java8Application.employees).forEach(print);
     }
 }

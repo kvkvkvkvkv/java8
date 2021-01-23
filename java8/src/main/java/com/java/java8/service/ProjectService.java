@@ -25,6 +25,15 @@ public class ProjectService {
             .filter(proj -> periodGreaterThan5.test(proj))
             .collect(Collectors.toList());
 
+    BiPredicate<Employee,Project> hrInProject2 = (employee, project) -> project.getName().equals("Project 2") && employee.getDepartment().equalsIgnoreCase("HR");
+    BiPredicate<Employee,Project> hrInProject1 = (emp,proj) -> emp.getDepartment().equals("HR") && proj.getName().equals("Project 1");
+    BiPredicate<Employee,Project> salaryAbove3000 = (emp,proj) -> emp.getSalary()>3000 && proj.getTeamSize()>5;
+    BiFunction<Employee,Project, Period> getEmpPeriodDiff = (employee, project) -> Period.between(project.getStartDate(),employee.getStartDate());
+    BiConsumer<Employee,Project> salAndPeriod = (employee, project) -> {
+        employee.setSalary(employee.getSalary()+1000);
+        project.setPeriod(project.getPeriod().plusDays(5));
+    };
+
     public List<Project> getAllProjects() {
         return Java8Application.projects;
     }
@@ -58,5 +67,77 @@ public class ProjectService {
         project.add(proj4.get());
 
         return project;
+    }
+
+    //bipredicate - test
+    public List<Employee> getHrinProject1(List<Employee> employees){
+        return employees.stream()
+                .filter(emp -> hrInProject1.test(emp,emp.getProject()))
+                .collect(Collectors.toList());
+    }
+
+    //bipredicate - or
+    public List<Employee> getHrinProjec1orProject2(List<Employee> employees){
+        return employees.stream()
+                .filter(emp -> hrInProject1.or(hrInProject2).test(emp,emp.getProject()))
+                .collect(Collectors.toList());
+    }
+
+    //bipredicate - negate
+    public List<Employee> getnotHrInProject1(List<Employee> employees){
+        return employees.stream()
+                .filter(emp -> hrInProject1.negate().test(emp,emp.getProject()))
+                .collect(Collectors.toList());
+    }
+
+    //bipredicate - and
+    public List<Employee> getHrInProject1AndSalaryAbove3000(List<Employee> employees){
+        return employees.stream()
+                .filter(emp -> hrInProject1.and(salaryAbove3000).test(emp,emp.getProject()))
+                .collect(Collectors.toList());
+    }
+
+    //bifunction - apply
+    public List<Employee> getPeriodMoreThan5(List<Employee> employees){
+        return employees.stream()
+                .filter(emp -> getEmpPeriodDiff.apply(emp,emp.getProject()).getYears()>5)
+                .collect(Collectors.toList());
+    }
+
+    //bifunction - andThen
+    public List<Employee> getAllInProject1AndNameStartsWithS(List<Employee> employees){
+        BiFunction<List<Employee>,List<Project>,List<Employee>> empInProject1 = (employee, project) -> employee.stream()
+                .filter(emp -> emp.getName().startsWith("S"))
+                .collect(Collectors.toList());
+
+        BiFunction<Employee,Project,Employee> empInProject = (employee, project) -> {
+            if (employee.getName().startsWith("S") && project.getName().equalsIgnoreCase("Project 2")) {
+                employee.setSalary(employee.getSalary() + 1000);
+            }
+            return employee;
+        };
+
+        Function<Employee,Employee> employee = Function.identity();
+
+        return employees.stream()
+                .filter(emp -> empInProject.andThen(employee).apply(emp,emp.getProject()).getSalary()>3000)
+                .collect(Collectors.toList());
+    }
+
+    //biConsumer - accept
+    public void updateSalandPeriod(List<Employee> employees){
+        employees.stream()
+                .forEach(employee -> salAndPeriod.accept(employee,employee.getProject()));
+    }
+
+    //biConsumer - andThen
+    public void updateAgeAndSize(List<Employee> employees){
+        BiConsumer<Employee,Project> ageAndSize = (employee, project) -> {
+            employee.setAge(employee.getAge()+1);
+            project.setTeamSize(project.getTeamSize()+1);
+        };
+
+        employees.stream()
+                .forEach(emp -> salAndPeriod.andThen(ageAndSize).accept(emp,emp.getProject()));
     }
 }
