@@ -126,8 +126,7 @@ public class ProjectService {
 
     //biConsumer - accept
     public void updateSalandPeriod(List<Employee> employees){
-        employees.stream()
-                .forEach(employee -> salAndPeriod.accept(employee,employee.getProject()));
+        employees.forEach(employee -> salAndPeriod.accept(employee,employee.getProject()));
     }
 
     //biConsumer - andThen
@@ -137,7 +136,6 @@ public class ProjectService {
             project.setTeamSize(project.getTeamSize()+1);
         };
 
-        employees.stream()
-                .forEach(emp -> salAndPeriod.andThen(ageAndSize).accept(emp,emp.getProject()));
+        employees.forEach(emp -> salAndPeriod.andThen(ageAndSize).accept(emp,emp.getProject()));
     }
 }
