@@ -49,3 +49,111 @@ Applying functinaly interfaces and chaining for
             - [x]  andThen()
         - [x]  accept()
         - [x]  Use cases
+        
+        
+        
+        
+        
+  - [x]  Primitive Functional Interface
+    - [x]  Primitive Function
+        - [x]  IntFunction
+            - [x]  apply()
+        - [x]  LongFunction
+            - [x]  apply()
+        - [x]  DoubleFunction
+            - [x]  apply()
+        - [x]  ToIntFunction
+            - [x]  applyAsInt
+        - [x]  ToLongFunction
+            - [x]  applyAsLong
+        - [x]  ToDoubleFunction
+            - [x]  applyAsDouble
+        - [x]  IntToDoubleFunction
+            - [x]  applyAsDouble
+        - [x]  IntToLongFunction
+            - [x]  applyAsLong
+        - [x]  LongToDoubleFunction
+            - [x]  applyAsDouble
+        - [x]  LongToIntFunction
+            - [x]  applyAsInt
+        - [x]  DoubleToIntFunction
+            - [x]  applyAsInt
+        - [x]  DoubleToLongFunction
+            - [x]  applyAsLong
+    - [x]  Primitive Bi Function
+        - [x]  ToIntBiFunction
+            - [x]  applyAsInt
+        - [x]  ToDoubleBiFunction
+            - [x]  applyAsDouble
+        - [x]  ToLongBiFunction
+            - [x]  applyAsLong
+    - [x]  Primitive Consumer
+        - [x]  IntConsumer
+            - [x]  apply
+        - [x]  DoubleConsumer
+            - [x]  apply
+        - [x]  LongCOnsumer
+            - [x]  accept
+    - [x]  Primitive Bi Consumer
+        - [x]  ObjIntConsumer
+            - [x]  apply
+        - [x]  ObjDoubleConsumer
+            - [x]  apply
+        - [x]  ObjLongConsumer
+            - [x]  apply
+    - [x]  Primitive Supplier
+        - [x]  IntSupplier
+            - [x]  getAsInt
+        - [x]  DoubleSupplier
+            - [x]  getAsDouble
+        - [x]  LongSupplier
+            - [x]  getAsLong
+    - [x]  Unary Operator
+        - [x]  apply
+        - [x]  static identity
+    - [x]  Primitive Unary Function
+        - [x]  IntUnaryFunction
+            - [x]  applyAsInt
+            - [x]  andThen
+            - [x]  compose
+            - [x]  Identity
+        - [x]  DoubleUnaryFunction
+            - [x]  applyAsDouble
+            - [x]  andThen
+            - [x]  compose
+            - [x]  Identity
+        - [x]  LongUnaryFunction
+            - [x]  applyAsLong
+            - [x]  andThen
+            - [x]  compose
+            - [x]  Identity
+    - [x]  Binary Operator
+        - [x]  apply
+        - [x]  minBy
+        - [x]  maxBy
+    - [x]  Primitive Unary Function
+        - [x]  IntBinaryOperator
+            - [x]  applyAsInt
+        - [x]  DoubleUnaryOperator
+            - [x]  applyAsDouble
+        - [x]  LongUnaryOperator
+            - [x]  applyAsLong
+    - [x]  Primitive Predicates
+        - [x]  IntPredicate
+            - [x]  test
+            - [x]  and
+            - [x]  or
+            - [x]  negate
+            - [x]  no isequal
+        - [x]  DoublePredicate
+            - [x]  test
+            - [x]  and
+            - [x]  or
+            - [x]  negate
+            - [x]  no isequal
+        - [x]  LongPredicate
+            - [x]  test
+            - [x]  and
+            - [x]  or
+            - [x]  negate
+            - [x]  no isequal
