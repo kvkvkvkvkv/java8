@@ -157,3 +157,21 @@ Applying functinaly interfaces and chaining for
             - [x]  or
             - [x]  negate
             - [x]  no isequal
+            
+            
+- [x]  Method Reference
+    - [x]  Static Methods
+        - [x]  custom FI
+        - [x]  custom FI with Param
+        - [x]  inbuilt FI
+        - [x]  Overloading
+    - [x]  Instance Methods
+        - [x]  custom FI
+        - [x]  custom FI with Param
+        - [x]  inbuilt FI
+        - [x]  Overloading
+    - [x]  Constructor
+        - [x]  custom FI
+        - [x]  custom FI with Param
+        - [x]  inbuilt FI
+        - [x]  Overloading
