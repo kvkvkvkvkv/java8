@@ -4,13 +4,14 @@ import com.java.java8.Java8Application;
 import com.java.java8.model.Employee;
 import com.java.java8.model.Project;
 import com.java.java8.service.*;
+import com.java.java8.service.methodreference.ConstructorMethodRef;
+import com.java.java8.service.methodreference.InstanceMethod;
+import com.java.java8.service.methodreference.StaticMethodReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.util.Optional;
 import java.util.function.Consumer;
 
 @Component
@@ -43,7 +44,16 @@ public class CmdLineRunner implements CommandLineRunner {
     @Autowired
     BinaryOperatorFI binaryOperatorFI;
 
-    private static Logger log = LoggerFactory.getLogger(CmdLineRunner.class);
+    @Autowired
+    StaticMethodReference staticMethodReference;
+
+    @Autowired
+    InstanceMethod instanceMethod;
+
+    @Autowired
+    ConstructorMethodRef constructorMethodRef;
+
+    private static final Logger log = LoggerFactory.getLogger(CmdLineRunner.class);
 
     @Override
     public void run(String... args) {
@@ -56,11 +66,64 @@ public class CmdLineRunner implements CommandLineRunner {
         primitiveConsumerFI();
         primitiveSupplierFI();
         unaryOperatorsFI(print);
-        binaryOperatorsFI(print);
-
+        binaryOperatorsFI();
+        staticMethodRef();
+        instanceMethod(print);
+        constructorMethodRef();
     }
 
-    private void binaryOperatorsFI(Consumer<Employee> print) {
+    private void constructorMethodRef() {
+        log.info("");
+
+        log.info("*********************** Constructor Method Ref***********************");
+        constructorMethodRef.constructorTestFI();
+
+        log.info("*********************** Constructor Method Ref With Params***********************");
+        constructorMethodRef.constructorTestFIWithParam();
+
+        log.info("*********************** Test with predefined FI***********************");
+        constructorMethodRef.constructorTestInbuiltFI();
+    }
+
+    private void instanceMethod(Consumer<Employee> print) {
+        log.info("");
+
+        log.info("*********************** Instance Method Ref***********************");
+        print.accept(instanceMethod.staticTest());
+
+        log.info("*********************** Instance Method Ref With Params***********************");
+        print.accept(instanceMethod.staticTestWithParams());
+
+        log.info("*********************** Test with predefined FI***********************");
+        instanceMethod.staticTestWithPredefinedFI();
+
+        log.info("*********************** Test with predefined FI - IntBinaryOperator***********************");
+        log.info(String.valueOf(instanceMethod.staticTestWithPredefinedFIBinaryOperator()));
+
+        log.info("*********************** Overloading methods ***********************");
+        instanceMethod.staticTestWithOverloading();
+    }
+
+    private void staticMethodRef() {
+        log.info("");
+
+        log.info("*********************** Static Method Ref***********************");
+        log.info(staticMethodReference.instanceTest().toString());
+
+        log.info("*********************** Static Method Ref With Params***********************");
+        log.info(staticMethodReference.instanceTestWithParams().toString());
+
+        log.info("*********************** Test with predefined FI***********************");
+        staticMethodReference.instanceTestWithPredefinedFI();
+
+        log.info("*********************** Test with predefined FI - IntBinaryOperator***********************");
+        log.info(String.valueOf(staticMethodReference.instanceTestWithPredefinedFIBinaryOperator()));
+
+        log.info("*********************** Overloading static methods ***********************");
+        staticMethodReference.instanceTestWithOverloading();
+    }
+
+    private void binaryOperatorsFI() {
         log.info("***********************Binary Op FI and Primitive***********************");
 
         log.info("*********************** Add age ***********************");
