@@ -26,8 +26,8 @@ public class AnonymousVsLambda {
 
         @Override
         public void abc() {
-            log.info(String.valueOf("This.x = "+this.x));
-            log.info(String.valueOf("Test class x = "+AnonymousVsLambda.this.x));
+            log.info("This.x = "+this.x);
+            log.info("Test class x = "+AnonymousVsLambda.this.x);
         }
     };
 

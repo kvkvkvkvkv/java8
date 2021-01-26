@@ -5,6 +5,9 @@ import com.java.java8.model.Employee;
 import com.java.java8.model.Project;
 import com.java.java8.service.AnonymousVsLambda.dataVariables.AnonymousVsLambda;
 import com.java.java8.service.comparator.Comp;
+import com.java.java8.service.defaultMethods.HeirearchichalOverriding.HeirarchicalOverridingDefaultMethods;
+import com.java.java8.service.defaultMethods.hasDiffDefaultMethods.HasDiffDefaultMethods;
+import com.java.java8.service.defaultMethods.hasOverridedDefaultMethods.HasOverriddenDefaultMethods;
 import com.java.java8.service.inheritenceFI.FIextednsFI.FiExtendsFiWithoutOverriding;
 import com.java.java8.service.inheritenceFI.FIoverridesFI.FiOverridesFI;
 import com.java.java8.service.methodreference.ConstructorMethodRef;
@@ -73,6 +76,15 @@ public class CmdLineRunner implements CommandLineRunner {
     @Autowired
     AnonymousVsLambda anonymousVsLambda;
 
+    @Autowired
+    HasDiffDefaultMethods hasDiffDefaultMethods;
+
+    @Autowired
+    HasOverriddenDefaultMethods hasOverriddenDefaultMethods;
+
+    @Autowired
+    HeirarchicalOverridingDefaultMethods heirarchicalOverridingDefaultMethods;
+
     private static final Logger log = LoggerFactory.getLogger(CmdLineRunner.class);
 
     @Override
@@ -94,6 +106,20 @@ public class CmdLineRunner implements CommandLineRunner {
         fiOverridesFI();
         comp();
         anonymousVsLambda();
+        defaultMethods();
+    }
+
+    private void defaultMethods() {
+        log.info("");
+
+        log.info("*********************** has Diff Default Methods ***********************");
+        hasDiffDefaultMethods.call();
+
+        log.info("*********************** has Overridden Default Methods ***********************");
+        hasOverriddenDefaultMethods.call();
+
+        log.info("*********************** hierarchical Overridden Default Methods ***********************");
+        heirarchicalOverridingDefaultMethods.call();
     }
 
     private void anonymousVsLambda() {
