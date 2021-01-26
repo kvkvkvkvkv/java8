@@ -3,6 +3,8 @@ package com.java.java8.cmdLineRunner;
 import com.java.java8.Java8Application;
 import com.java.java8.model.Employee;
 import com.java.java8.model.Project;
+import com.java.java8.service.AnonymousVsLambda.dataVariables.AnonymousVsLambda;
+import com.java.java8.service.comparator.Comp;
 import com.java.java8.service.inheritenceFI.FIextednsFI.FiExtendsFiWithoutOverriding;
 import com.java.java8.service.inheritenceFI.FIoverridesFI.FiOverridesFI;
 import com.java.java8.service.methodreference.ConstructorMethodRef;
@@ -65,6 +67,12 @@ public class CmdLineRunner implements CommandLineRunner {
     @Autowired
     FiOverridesFI fiOverridesFI;
 
+    @Autowired
+    Comp comparator;
+
+    @Autowired
+    AnonymousVsLambda anonymousVsLambda;
+
     private static final Logger log = LoggerFactory.getLogger(CmdLineRunner.class);
 
     @Override
@@ -84,6 +92,22 @@ public class CmdLineRunner implements CommandLineRunner {
         constructorMethodRef();
         fiExtendsFiWithoutOverriding();
         fiOverridesFI();
+        comp();
+        anonymousVsLambda();
+    }
+
+    private void anonymousVsLambda() {
+        log.info("");
+
+        log.info("*********************** Data Variables ***********************");
+        anonymousVsLambda.test();
+    }
+
+    private void comp() {
+        log.info("");
+
+        log.info("*********************** Comparator ***********************");
+        comparator.sort();
     }
 
     private void fiOverridesFI() {
