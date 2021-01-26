@@ -1,14 +1,12 @@
-package com.java.java8.service;
+package com.java.java8.service.primitiveFI;
 
 import com.java.java8.model.Employee;
 import com.java.java8.model.Project;
 import org.springframework.stereotype.Service;
 
 import java.time.Period;
-import java.util.EnumMap;
 import java.util.List;
 import java.util.function.ToDoubleBiFunction;
-import java.util.function.ToIntBiFunction;
 import java.util.stream.Collectors;
 
 @Service

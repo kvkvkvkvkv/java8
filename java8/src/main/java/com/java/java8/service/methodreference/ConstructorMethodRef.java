@@ -1,8 +1,7 @@
 package com.java.java8.service.methodreference;
 
-import com.java.java8.service.customfunctionalinterface.ConstructorFI;
-import com.java.java8.service.customfunctionalinterface.ConstructorWithPAram;
-import com.java.java8.service.customfunctionalinterface.Emp;
+import com.java.java8.service.customFI.ConstructorFI;
+import com.java.java8.service.customFI.ConstructorWithPAram;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

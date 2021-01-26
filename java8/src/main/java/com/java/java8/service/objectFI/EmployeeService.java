@@ -1,10 +1,9 @@
-package com.java.java8.service;
+package com.java.java8.service.objectFI;
 
-import com.java.java8.Java8Application;
 import com.java.java8.model.Employee;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -60,17 +59,16 @@ public class EmployeeService {
     public List<Employee> salaryHikeForProject1orSalaryAbove1000(List<Employee> employees){
         Long hike = (long)1000;
         Function<List<Employee>,List<Employee>> project1 = employee -> employee.stream()
-                .filter(proj1::test)
+                .filter(proj1)
                 .collect(Collectors.toList());
 
         Function<List<Employee>,List<Employee>> salary = employee -> employee.stream()
-                .filter(minSalary::test)
+                .filter(minSalary)
                 .collect(Collectors.toList());
 
         List<Employee> eligibleEmployees = project1.andThen(salary).apply(employees);
 
-        eligibleEmployees.stream()
-                .forEach(employee -> employee.setSalary(employee.getSalary()+hike));
+        eligibleEmployees.forEach(employee -> employee.setSalary(employee.getSalary()+hike));
 
         return eligibleEmployees;
     }
@@ -79,17 +77,23 @@ public class EmployeeService {
     public List<Employee> salaryHikeForProject1orSalaryAbove2000(List<Employee> employees){
         Long hike = (long)1000;
         Function<List<Employee>,List<Employee>> project1 = employee -> employee.stream()
-                .filter(proj1::test)
+                .filter(proj1)
                 .collect(Collectors.toList());
 
-        Function<List<Employee>,List<Employee>> salary = employee -> employee.stream()
-                .filter(minSalary::test)
-                .collect(Collectors.toList());
+        Function<List<Employee>,List<Employee>> salary = employee -> {
+            List<Employee> list = new ArrayList<>();
+            Predicate<Employee> employeePredicate = minSalary;
+            for (Employee employee1 : employee) {
+                if (employeePredicate.test(employee1)) {
+                    list.add(employee1);
+                }
+            }
+            return list;
+        };
 
         List<Employee> eligibleEmployees = project1.compose(salary).apply(employees);
 
-        eligibleEmployees.stream()
-                .forEach(employee -> employee.setSalary(employee.getSalary()+hike));
+        eligibleEmployees.forEach(employee -> employee.setSalary(employee.getSalary()+hike));
 
         return eligibleEmployees;
     }
@@ -106,8 +110,7 @@ public class EmployeeService {
         Consumer<Employee> incrementAge = employee -> employee.setAge(employee.getAge()+1);
         Consumer<Employee> incrementSalary = employee -> employee.setSalary(employee.getSalary()+1000);
 
-        employees.stream()
-                .forEach(employee -> incrementAge.andThen(incrementSalary).accept(employee));
+        employees.forEach(employee -> incrementAge.andThen(incrementSalary).accept(employee));
 
         return employees;
     }

@@ -2,8 +2,8 @@ package com.java.java8.service.methodreference;
 
 import com.java.java8.Java8Application;
 import com.java.java8.model.Employee;
-import com.java.java8.service.customfunctionalinterface.Emp;
-import com.java.java8.service.customfunctionalinterface.EmpWithParam;
+import com.java.java8.service.customFI.Emp;
+import com.java.java8.service.customFI.EmpWithParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

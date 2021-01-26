@@ -1,6 +1,5 @@
-package com.java.java8.service;
+package com.java.java8.service.primitiveFI;
 
-import com.java.java8.cmdLineRunner.CmdLineRunner;
 import com.java.java8.model.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

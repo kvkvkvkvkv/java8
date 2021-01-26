@@ -1,10 +1,9 @@
-package com.java.java8.service;
+package com.java.java8.service.primitiveFI;
 
 import com.java.java8.model.Employee;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.function.IntConsumer;
 import java.util.function.LongConsumer;
 import java.util.function.ObjIntConsumer;
 

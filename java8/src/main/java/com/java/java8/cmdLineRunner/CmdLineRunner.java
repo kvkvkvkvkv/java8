@@ -3,10 +3,16 @@ package com.java.java8.cmdLineRunner;
 import com.java.java8.Java8Application;
 import com.java.java8.model.Employee;
 import com.java.java8.model.Project;
-import com.java.java8.service.*;
+import com.java.java8.service.inheritenceFI.FIextednsFI.FiExtendsFiWithoutOverriding;
+import com.java.java8.service.inheritenceFI.FIoverridesFI.FiOverridesFI;
 import com.java.java8.service.methodreference.ConstructorMethodRef;
 import com.java.java8.service.methodreference.InstanceMethod;
 import com.java.java8.service.methodreference.StaticMethodReference;
+import com.java.java8.service.objectFI.EmployeeService;
+import com.java.java8.service.objectFI.ProjectService;
+import com.java.java8.service.operatorFIprimitiveandobject.BinaryOperatorFI;
+import com.java.java8.service.operatorFIprimitiveandobject.UnaryOperatorFI;
+import com.java.java8.service.primitiveFI.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +59,12 @@ public class CmdLineRunner implements CommandLineRunner {
     @Autowired
     ConstructorMethodRef constructorMethodRef;
 
+    @Autowired
+    FiExtendsFiWithoutOverriding fiExtendsFiWithoutOverriding;
+
+    @Autowired
+    FiOverridesFI fiOverridesFI;
+
     private static final Logger log = LoggerFactory.getLogger(CmdLineRunner.class);
 
     @Override
@@ -70,6 +82,24 @@ public class CmdLineRunner implements CommandLineRunner {
         staticMethodRef();
         instanceMethod(print);
         constructorMethodRef();
+        fiExtendsFiWithoutOverriding();
+        fiOverridesFI();
+    }
+
+    private void fiOverridesFI() {
+        log.info("");
+
+        log.info("*********************** fi Overrides FI***********************");
+        fiOverridesFI.callMethod();
+
+    }
+
+    private void fiExtendsFiWithoutOverriding() {
+        log.info("");
+
+        log.info("*********************** fi Extends Fi Without Overriding ***********************");
+        fiExtendsFiWithoutOverriding.callMethod();
+
     }
 
     private void constructorMethodRef() {

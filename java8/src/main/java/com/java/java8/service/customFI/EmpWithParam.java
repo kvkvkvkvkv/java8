@@ -1,4 +1,4 @@
-package com.java.java8.service.customfunctionalinterface;
+package com.java.java8.service.customFI;
 
 import com.java.java8.model.Employee;
 

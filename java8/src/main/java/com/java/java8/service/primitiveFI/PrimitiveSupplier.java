@@ -1,8 +1,7 @@
-package com.java.java8.service;
+package com.java.java8.service.primitiveFI;
 
 import org.springframework.stereotype.Service;
 
-import java.util.function.DoubleSupplier;
 import java.util.function.IntSupplier;
 
 @Service
