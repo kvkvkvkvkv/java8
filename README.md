@@ -175,3 +175,14 @@ Applying functinaly interfaces and chaining for
         - [x]  custom FI with Param
         - [x]  inbuilt FI
         - [x]  Overloading
+        
+        
+        
+        
+- [x]  Functional Interface Inheritance
+    - [x]  Why 1 abstract method
+    - [x]  why @functional Interface
+    - [x]  Fi extends fi without overriding
+    - [x]  fi extends fi new method - error
+    - [x]  class implements fi
+    - [x]  Fi extends fi overrides
