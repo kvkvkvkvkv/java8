@@ -186,3 +186,22 @@ Applying functinaly interfaces and chaining for
     - [x]  fi extends fi new method - error
     - [x]  class implements fi
     - [x]  Fi extends fi overrides
+    
+    
+    
+    
+- [x]  Anonymous inner class vs Lambda
+    - [x]  Anonymous extends concrete class
+    - [x]  Anonymous extends abstract class
+    - [x]  Anonymous extends interface with multiple methods
+    - [x]  Anonymous extends interface with single method = lambda
+    - [x]  Data variable in lambda and anonymous
+- [x]  Data Variables in Lambda
+- [x]  Default Methods
+    - [x]  Inheritance
+        - [x]  ambiguity unrelated interface
+        - [x]  related interface - ClassName.super.methodName()
+- [x]  Static Methods
+    - [x]  modifier changes allowed
+    - [x]  non static methods allowed
+    - [x]  can have same method in child class not overidden
