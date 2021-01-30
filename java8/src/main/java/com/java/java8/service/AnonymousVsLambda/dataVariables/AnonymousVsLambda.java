@@ -41,6 +41,7 @@ public class AnonymousVsLambda {
         Anonymous ano = () -> {
             log.info("Lambda works");
             int x = 20;
+            //int y = 90; cannot redeclare variable
             log.info("This.x ="+this.x);
             log.info("x ="+x);
             x= x+20;
