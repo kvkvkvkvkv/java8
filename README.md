@@ -205,3 +205,21 @@ Applying functinaly interfaces and chaining for
     - [x]  modifier changes allowed
     - [x]  non static methods allowed
     - [x]  can have same method in child class not overidden
+    
+    
+    
+    
+- [x]  Optionals
+    - [x]  of
+    - [x]  ofNUllable
+    - [x]  empty
+    - [x]  orelse
+    - [x]  orElseGet
+    - [x]  orElseThrow
+    - [x]  map
+    - [x]  flat map
+    - [x]  equals
+    - [x]  hash code
+    - [x]  ifPresent
+    - [x]  isPresent
+    - [x]  get()
