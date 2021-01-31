@@ -156,6 +156,7 @@ public class Optionals {
 
     //orelse
     //returns value else default value if optioanl empty/null
+    //enters default value always even if not satisfied
     public void orElse(){
         //original value
         Employee e = emp.orElse(Java8Application.employees.get(1));
@@ -170,6 +171,7 @@ public class Optionals {
     //returns value else default value if optioanl empty/null
     //uses supplier
     //npe for null supplier
+    //enters default value only if not satisfied
     public void orElseGet(){
         //original value
         Employee e = emp.orElseGet(() -> Java8Application.employees.get(2));
