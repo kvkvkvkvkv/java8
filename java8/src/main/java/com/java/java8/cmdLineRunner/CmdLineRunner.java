@@ -86,7 +86,7 @@ public class CmdLineRunner implements CommandLineRunner {
     HeirarchicalOverridingDefaultMethods heirarchicalOverridingDefaultMethods;
 
     @Autowired
-    OptionalsRunner optionalsRunner;
+    OptionalStreamRunner optionalStreamRunner;
 
     private static final Logger log = LoggerFactory.getLogger(CmdLineRunner.class);
 
@@ -110,7 +110,7 @@ public class CmdLineRunner implements CommandLineRunner {
         comp();
         anonymousVsLambda();
         defaultMethods();
-        optionalsRunner.run();
+        optionalStreamRunner.run();
     }
 
     private void defaultMethods() {
