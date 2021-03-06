@@ -1,0 +1,17 @@
+
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÁÈŞ8áÈî˜€/
+X
+java:S1128	";Remove this unused import 'javax.annotation.PostConstruct'.(›ÅÁ8áÈî˜€/
+q
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(‹ïÍÕ8áÈî˜€/
+y
+java:S2629&"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(»Š¦8¦Âş˜€/
+O
+java:S1128
+"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8áÈî˜€/
+y
+java:S2629("\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ÛÇ–8¿ÿ¤™€/
+A
+java:S2116%"%Use "Arrays.toString(array)" instead.(¤ã¨8ŠÓı˜€/
+x
+java:S2629%"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(¤ã¨8ŠÓı˜€/
