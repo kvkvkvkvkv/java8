@@ -1,4 +1,4 @@
-package org.springframework.service;
+package org.springframework.service.CoachTypes;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -1,12 +1,13 @@
 package org.springframework;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.service.AnnotationConfig;
+import org.springframework.service.Auto.Primary.PrimaryAuto;
+import org.springframework.service.Configs.AnnotationConfig;
 import org.springframework.service.Auto.ListArrayAuto;
 import org.springframework.service.Auto.ListArrayConfig;
 import org.springframework.service.BeanScope;
 import org.springframework.service.Required;
-import org.springframework.service.TennisCoach;
+import org.springframework.service.CoachTypes.TennisCoach;
 
 import java.util.logging.Logger;
 
@@ -39,6 +40,9 @@ public class SpringFrameworkAnnotations
 
         Required required = context.getBean("required",Required.class);
         LOG.info("required = false"+required.toString());
+
+        PrimaryAuto primaryAuto = context.getBean("primaryAuto",PrimaryAuto.class);
+        LOG.info("medal ="+primaryAuto.getMetal());
 
         context.close();
     }

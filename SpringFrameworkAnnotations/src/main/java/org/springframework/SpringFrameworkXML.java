@@ -2,7 +2,7 @@ package org.springframework;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.service.BeanScope;
-import org.springframework.service.TennisCoach;
+import org.springframework.service.CoachTypes.TennisCoach;
 
 import java.util.logging.Logger;
 

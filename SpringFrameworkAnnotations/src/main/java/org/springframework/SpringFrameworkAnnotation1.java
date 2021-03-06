@@ -1,8 +1,8 @@
 package org.springframework;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.models.Coach;
-import org.springframework.service.*;
+import org.springframework.service.CoachTypes.SwimCoach;
+import org.springframework.service.Configs.BeanConfig;
 
 import java.util.logging.Logger;
 
