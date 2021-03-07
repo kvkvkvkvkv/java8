@@ -5,7 +5,7 @@ import org.springframework.models.Medalist;
 import org.springframework.stereotype.Component;
 
 @Component
-@Primary
+@Primary //primary
 public class Gold implements Medalist {
 
     @Override
