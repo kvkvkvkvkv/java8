@@ -6,8 +6,10 @@ import org.springframework.service.Configs.AnnotationConfig;
 import org.springframework.service.Auto.ListArrayAuto;
 import org.springframework.service.Configs.ListArrayConfig;
 import org.springframework.service.BeanScope;
+import org.springframework.service.Configs.ValueConfig;
 import org.springframework.service.Required;
 import org.springframework.service.CoachTypes.TennisCoach;
+import org.springframework.service.Value.ValueAnno;
 import org.springframework.service.customQualifier.CustomQualifier;
 
 import java.util.logging.Logger;
@@ -22,7 +24,7 @@ public class SpringFrameworkAnnotations
     }
 
     private static void javaConfig() {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AnnotationConfig.class, ListArrayConfig.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AnnotationConfig.class, ListArrayConfig.class, ValueConfig.class);
 //        Coach coach = context.getBean("tennis", Coach.class);
         TennisCoach coach = context.getBean("tennisCoach",TennisCoach.class); //default
         TennisCoach coach1 = context.getBean("tennisCoach",TennisCoach.class); //default
@@ -49,6 +51,9 @@ public class SpringFrameworkAnnotations
         LOG.info("customQualifier is = "+customQualifier.getMedal());
         LOG.info("customQualifier is medal= "+customQualifier.getMedalist());
         LOG.info("customQualifier is medal= "+customQualifier.getMedalistWon().getDailyFortune());
+
+        ValueAnno valueAnno = context.getBean("valueAnno",ValueAnno.class);
+        valueAnno.printAll();
 
         context.close();
     }

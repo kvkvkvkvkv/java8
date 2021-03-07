@@ -6,6 +6,7 @@ import org.springframework.service.customQualifier.Won;
 import org.springframework.stereotype.Component;
 
 @Component
+@Winner(Won.SILVER)
 public class Silver implements Medalist {
 
     @Override
