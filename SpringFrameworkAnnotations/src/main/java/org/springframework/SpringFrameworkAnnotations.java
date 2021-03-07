@@ -1,14 +1,16 @@
 package org.springframework;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.service.Auto.Primary.PrimaryAuto;
-import org.springframework.service.Configs.AnnotationConfig;
 import org.springframework.service.Auto.ListArrayAuto;
-import org.springframework.service.Configs.ListArrayConfig;
+import org.springframework.service.Auto.Primary.PrimaryAuto;
 import org.springframework.service.BeanScope;
-import org.springframework.service.Configs.ValueConfig;
-import org.springframework.service.Required;
 import org.springframework.service.CoachTypes.TennisCoach;
+import org.springframework.service.Configs.AnnotationConfig;
+import org.springframework.service.Configs.ListArrayConfig;
+import org.springframework.service.Configs.ValueConfig;
+import org.springframework.service.Filter.Annotate;
+import org.springframework.service.Filter.GenreAnnotate;
+import org.springframework.service.Required;
 import org.springframework.service.Value.ValueAnno;
 import org.springframework.service.customQualifier.CustomQualifier;
 
@@ -21,6 +23,13 @@ public class SpringFrameworkAnnotations
     public static void main( String[] args ) {
 //        annotationBasedConfig();
         javaConfig();
+        filter();
+    }
+
+    private static void filter() {
+//        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Annotate.class);
+//        GenreAnnotate genreAnno = context.getBean("genreAnnotate", GenreAnnotate.class);
+//        genreAnno.getString();
     }
 
     private static void javaConfig() {
@@ -54,6 +63,10 @@ public class SpringFrameworkAnnotations
 
         ValueAnno valueAnno = context.getBean("valueAnno",ValueAnno.class);
         valueAnno.printAll();
+
+//        add in context
+//        GenreAnnotate genreAnnotate = context.getBean("genreAnnotate",GenreAnnotate.class);
+//        genreAnnotate.getString();
 
         context.close();
     }
