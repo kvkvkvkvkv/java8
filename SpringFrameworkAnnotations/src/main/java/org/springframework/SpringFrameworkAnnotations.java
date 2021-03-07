@@ -4,10 +4,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.service.Auto.Primary.PrimaryAuto;
 import org.springframework.service.Configs.AnnotationConfig;
 import org.springframework.service.Auto.ListArrayAuto;
-import org.springframework.service.Auto.ListArrayConfig;
+import org.springframework.service.Configs.ListArrayConfig;
 import org.springframework.service.BeanScope;
 import org.springframework.service.Required;
 import org.springframework.service.CoachTypes.TennisCoach;
+import org.springframework.service.customQualifier.CustomQualifier;
 
 import java.util.logging.Logger;
 
@@ -43,6 +44,11 @@ public class SpringFrameworkAnnotations
 
         PrimaryAuto primaryAuto = context.getBean("primaryAuto",PrimaryAuto.class);
         LOG.info("medal ="+primaryAuto.getMetal());
+
+        CustomQualifier customQualifier = context.getBean("customQualifier",CustomQualifier.class);
+        LOG.info("customQualifier is = "+customQualifier.getMedal());
+        LOG.info("customQualifier is medal= "+customQualifier.getMedalist());
+        LOG.info("customQualifier is medal= "+customQualifier.getMedalistWon().getDailyFortune());
 
         context.close();
     }

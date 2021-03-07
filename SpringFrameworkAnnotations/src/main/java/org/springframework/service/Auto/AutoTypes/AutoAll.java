@@ -1,8 +1,9 @@
-package org.springframework.service.Auto;
+package org.springframework.service.Auto.AutoTypes;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.models.Fortune;
+import org.springframework.service.Auto.Parent;
 import org.springframework.stereotype.Component;
 
 import java.util.logging.Logger;

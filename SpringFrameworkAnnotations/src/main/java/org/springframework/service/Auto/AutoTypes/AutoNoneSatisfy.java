@@ -1,4 +1,4 @@
-package org.springframework.service.Auto;
+package org.springframework.service.Auto.AutoTypes;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

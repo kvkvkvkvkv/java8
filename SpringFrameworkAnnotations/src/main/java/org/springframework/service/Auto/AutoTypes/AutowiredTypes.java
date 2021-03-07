@@ -1,5 +1,6 @@
-package org.springframework.service.Auto;
+package org.springframework.service.Auto.AutoTypes;
 
+import org.springframework.service.Auto.Parent;
 import org.springframework.stereotype.Component;
 
 import java.util.logging.Logger;

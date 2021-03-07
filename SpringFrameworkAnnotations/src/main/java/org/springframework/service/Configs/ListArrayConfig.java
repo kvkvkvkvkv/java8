@@ -1,4 +1,4 @@
-package org.springframework.service.Auto;
+package org.springframework.service.Configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

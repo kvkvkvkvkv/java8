@@ -1,6 +1,8 @@
 package org.springframework.service.Auto.Primary;
 
 import org.springframework.models.Medalist;
+import org.springframework.service.customQualifier.Winner;
+import org.springframework.service.customQualifier.Won;
 import org.springframework.stereotype.Component;
 
 @Component
