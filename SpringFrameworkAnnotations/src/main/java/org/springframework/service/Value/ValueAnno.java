@@ -44,7 +44,7 @@ public class ValueAnno {
     List<String> list;
 
     //array
-    @Value("${list}")
+    @Value("${arr}")
     String[] array;
 
     //map

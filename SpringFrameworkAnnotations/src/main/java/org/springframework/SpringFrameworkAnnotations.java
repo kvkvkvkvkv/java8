@@ -13,6 +13,8 @@ import org.springframework.service.Filter.GenreAnnotate;
 import org.springframework.service.Required;
 import org.springframework.service.Value.ValueAnno;
 import org.springframework.service.customQualifier.CustomQualifier;
+import org.springframework.service.lazy.LazyConfig;
+import org.springframework.service.lazy.LazyInit;
 
 import java.util.logging.Logger;
 
@@ -67,6 +69,10 @@ public class SpringFrameworkAnnotations
 //        add in context
 //        GenreAnnotate genreAnnotate = context.getBean("genreAnnotate",GenreAnnotate.class);
 //        genreAnnotate.getString();
+
+
+        LazyInit lazyInit = context.getBean("lazyInit",LazyInit.class);
+        LOG.info("lazyyy="+lazyInit.getCity());
 
         context.close();
     }
