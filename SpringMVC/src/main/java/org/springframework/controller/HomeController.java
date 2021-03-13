@@ -7,7 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
     @RequestMapping("/")
-    public String getHome(){
+    public String getMotivation(){
         return "win";
     }
+
+    @RequestMapping("quote")
+    public String getQuote(){
+        return "quote";
+    }
+
+    //add data to model public String getData(HttpServletRequest)
 }
