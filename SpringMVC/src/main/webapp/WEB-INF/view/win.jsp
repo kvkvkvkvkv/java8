@@ -9,5 +9,23 @@
 </form>
 
 
+<form action="usingModel" method="GET">
+  <input type="text" name="motivate" placeholder="happy"/>
+  <input type="submit"/>
+</form>
+
+<form action="requestParam" method="GET">
+  <input type="text" name="motivate" placeholder="happy"/>
+  <input type="submit"/>
+</form>
+
+<form action="hello/requestParam" method="GET">
+  <input type="text" name="motivate" placeholder="happy"/>
+  <input type="submit"/>
+</form>
+
+<a href="student/showForm">Student Form</a>
+
+
 </body>
 </html>
