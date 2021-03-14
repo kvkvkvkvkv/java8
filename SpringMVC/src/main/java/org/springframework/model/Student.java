@@ -2,6 +2,9 @@ package org.springframework.model;
 
 import lombok.Data;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 @Data
 public class Student {
 
@@ -9,6 +12,10 @@ public class Student {
     String lastName;
     String country;
 
+    Map<String,String>values = new LinkedHashMap();
+
     public Student() {
+        values.put("IN","INDIA");
+        values.put("EU","EUROPE");
     }
 }

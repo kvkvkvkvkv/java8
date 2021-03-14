@@ -15,8 +15,10 @@ Last Name
 <br>
 Country
 <form:select path="country">
-    <form:option value="India" label="India"/>
-    <form:option value="France" label="France"/>
+    <!--<form:option value="India" label="India"/>
+    <form:option value="France" label="France"/>-->
+
+    <form:options items="${student.values}"/>
 </form:select>
 
 <input type="submit" value="Submit"/>
