@@ -11,6 +11,7 @@ public class Student {
     String firstName;
     String lastName;
     String country;
+    String language;
 
     Map<String,String>values = new LinkedHashMap();
 

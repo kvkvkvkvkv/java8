@@ -20,6 +20,13 @@ Country
 
     <form:options items="${student.values}"/>
 </form:select>
+<br>
+Language
+<br>
+Java<form:radiobutton path="language" value="Java"/>
+Python<form:radiobutton path="language" value="Python"/>
+
+
 
 <input type="submit" value="Submit"/>
 

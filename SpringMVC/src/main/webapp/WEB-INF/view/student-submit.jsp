@@ -14,6 +14,9 @@ ${student.lastName}
 <br>
 Country
 ${student.country}
+<br>
+Language
+${student.language}
 
 </body>
 </html>
