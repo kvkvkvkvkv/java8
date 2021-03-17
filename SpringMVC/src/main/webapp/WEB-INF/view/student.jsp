@@ -25,7 +25,11 @@ Language
 <br>
 Java<form:radiobutton path="language" value="Java"/>
 Python<form:radiobutton path="language" value="Python"/>
-
+<br>
+OS
+<br>
+Win <form:checkbox path="os" value="win"/>
+Linux <form:checkbox path="os" value="Linux"/>
 
 
 <input type="submit" value="Submit"/>
