@@ -22,6 +22,21 @@ Last Name
 <form:input path="lastName"/>
 <form:errors path="lastName" cssClass = "error"/>
 
+<br>
+Passes
+<form:input path="passes"/>
+<form:errors path="passes" cssClass = "error"/>
+
+<br>
+Address
+<form:input path="postalCode"/>
+<form:errors path="postalCode" cssClass = "error"/>
+
+<br>
+Course code
+<form:input path="courseCode"/>
+<form:errors path="courseCode" cssClass = "error"/>
+
 <input type="submit" value="Submit"/>
 
 </form:form>

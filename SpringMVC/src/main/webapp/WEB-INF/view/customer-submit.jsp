@@ -12,6 +12,15 @@ ${customer.firstName}
 <br>
 Last Name
 ${customer.lastName}
+<br>
+Passes
+${customer.passes}
+<br>
+Postal Code
+${customer.postalCode}
+<br>
+Postal Code
+${customer.courseCode}
 
 </body>
 </html>

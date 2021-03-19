@@ -19,4 +19,9 @@
     <property name="suffix" value=".jsp"/>
   </bean>
 
+<!--  <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">-->
+<!--    <property name="basename" value="classpath*:resources/messages"/>-->
+<!--    <property name="useCodeAsDefaultMessage" value="true"/>-->
+<!--  </bean>-->
+  
 </beans>
