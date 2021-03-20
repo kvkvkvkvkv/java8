@@ -12,6 +12,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 public class AnonymousVsLambda {
 
@@ -35,6 +38,7 @@ public class AnonymousVsLambda {
         log.info("......Anonymous class......");
         abc.abc();
         int y = 10; // effectively final
+        Map<String, String> abcd = new HashMap<>();
         y = y+1;
         log.info("......Lambda......");
         int finalY = y;
@@ -56,11 +60,14 @@ public class AnonymousVsLambda {
             System.out.println(finalY);
             w = w+30;
 
-//            y = y+30; - Variable used in lambda expression should be final or effectively final
+//            y = y+30;
+            abcd.put("a","b");
         };
         ano.abc();
 
         y = y+5;
+        abcd.put("aa","b");
+        System.out.println("innnnnnnn....abcd"+abcd);
     }
 
 }
