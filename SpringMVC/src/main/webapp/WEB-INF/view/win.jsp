@@ -23,10 +23,12 @@
   <input type="text" name="motivate" placeholder="happy"/>
   <input type="submit"/>
 </form>
-
+<br>
 <a href="student/showForm">Student Form</a>
+<br>
 <a href="customer/showForm">Customer Form</a>
-
+<br>
+<a href="requestParams/showForm">Request Param Form</a>
 
 </body>
 </html>
