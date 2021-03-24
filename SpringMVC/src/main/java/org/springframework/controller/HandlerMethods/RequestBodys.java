@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.logging.Logger;
 
@@ -15,8 +16,15 @@ public class RequestBodys {
 
     Logger log = Logger.getLogger("RequestBodys");
 
-    @PostMapping(value = "/requestBody", consumes = "application/json", produces = "application/json")
-    public void requestBody(@RequestBody Employee employee){
-        log.info("Customer from request"+employee.toString());
+    @RequestMapping("/get")
+    @ResponseBody
+    public Employee getEmp(){
+        return new Employee("Yo","2");
+    }
+
+    @RequestMapping("/post")
+    @ResponseBody
+    public Employee getEmp(@RequestBody Employee employee){
+        return employee;
     }
 }
