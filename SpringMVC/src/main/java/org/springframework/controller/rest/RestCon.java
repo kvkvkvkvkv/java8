@@ -1,10 +1,8 @@
 package org.springframework.controller.rest;
 
+import org.springframework.controller.exception.EmployeeNotFoundException;
 import org.springframework.model.Employee;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -35,6 +33,10 @@ public class RestCon {
 
     @GetMapping("/emp/{id}")
     public Employee getEmpsById(@PathVariable Integer id){
+
+        if (id >= emps.size() || id <= emps.size()){
+            throw new EmployeeNotFoundException("Employee Not found for id "+id);
+        }
         return emps.get(id);
     }
 }
