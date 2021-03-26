@@ -56,4 +56,16 @@ public class RestCon {
 
         return employee;
     }
+
+    @DeleteMapping("/emp/{id}")
+    public List<Employee> delete(@PathVariable Integer id){
+
+        if (id < emps.size() && id >= 0){
+            emps.remove(id);
+        } else {
+            throw new EmployeeNotFoundException("Cannot delete for id"+id);
+        }
+
+        return emps;
+    }
 }
