@@ -45,4 +45,15 @@ public class RestCon {
         emps.add(employee);
         return  employee;
     }
+
+    @PutMapping("/emp")
+    public Employee putEmp(@RequestBody Employee employee){
+        for (Employee emp : emps){
+            if (emp.getName().equalsIgnoreCase(employee.getName())){
+                emp.setAge(employee.getAge());
+            }
+        }
+
+        return employee;
+    }
 }
