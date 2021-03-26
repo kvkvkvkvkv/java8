@@ -34,9 +34,15 @@ public class RestCon {
     @GetMapping("/emp/{id}")
     public Employee getEmpsById(@PathVariable Integer id){
 
-        if (id >= emps.size() || id <= emps.size()){
+        if (id >= emps.size() && id < 0){
             throw new EmployeeNotFoundException("Employee Not found for id "+id);
         }
         return emps.get(id);
+    }
+
+    @PostMapping("/emp")
+    public Employee addEmp(@RequestBody Employee employee){
+        emps.add(employee);
+        return  employee;
     }
 }
