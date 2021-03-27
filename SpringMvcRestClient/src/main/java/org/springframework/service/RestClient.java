@@ -50,5 +50,8 @@ public class RestClient {
         restTemplate.put("http://localhost:8080/SpringMVC/rest/emp/",responseEntity,Employee.class);
     }
 
+    public void delEmp(Integer id){
+        restTemplate.delete("http://localhost:8080/SpringMVC/rest/emp/"+id);
+    }
 
 }
