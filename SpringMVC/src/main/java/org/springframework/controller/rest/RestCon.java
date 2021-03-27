@@ -7,12 +7,14 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/rest")
 public class RestCon {
 
     List<Employee> emps = new ArrayList<>();
+    Logger log = Logger.getLogger(RestCon.class.getName());
 
     @PostConstruct
     public void init(){
@@ -61,11 +63,25 @@ public class RestCon {
     public List<Employee> delete(@PathVariable Integer id){
 
         if (id < emps.size() && id >= 0){
-            emps.remove(id);
+            log.info("remove......");
+            emps.remove((int)id);
+            log.info("remove......"+emps);
         } else {
-            throw new EmployeeNotFoundException("Cannot delete for id"+id);
+            throw new EmployeeNotFoundException("Cannot delete for id "+id);
         }
 
         return emps;
+    }
+
+    @PatchMapping("/emp/{id}")
+    public Employee putEmployee(@PathVariable Integer id, @RequestBody Employee employee){
+
+        if (id < emps.size() && id >= 0){
+            emps.get(id).setName(employee.getName());
+        } else {
+            throw new EmployeeNotFoundException("Cannot delete for id "+id);
+        }
+
+        return emps.get(id);
     }
 }
