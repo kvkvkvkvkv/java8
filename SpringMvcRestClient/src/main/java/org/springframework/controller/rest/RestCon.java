@@ -29,4 +29,8 @@ public class RestCon {
         return restClient.postEmp(employee);
     }
 
+    @PutMapping("/put")
+    public void putEmps(@RequestBody Employee employee){
+        restClient.putEmp(employee);
+    }
 }
