@@ -36,7 +36,7 @@ public class UserEntityManager {
         user1.setAge(11);
         user1.setName("B");
         user1.setEmail("b@gmail.com");
-        entityManager.persist(user);
+        entityManager.persist(user1);
 
         entityManager.getTransaction().commit();
 
@@ -121,5 +121,16 @@ public class UserEntityManager {
         entityManagerFactory.close();
 
         return user;
+    }
+
+    public void deleteUser(Integer id) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+
+        User currentUser = entityManager.find(User.class,id);
+        entityManager.remove(currentUser);
+        entityManager.getTransaction().commit();
+        entityManagerFactory.close();
     }
 }

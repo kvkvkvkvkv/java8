@@ -32,4 +32,8 @@ public class UserService {
     public User patchUser(User user, Integer id) {
         return userEntityManager.patchUser(user,id);
     }
+
+    public void deleteUser(Integer id) {
+        userEntityManager.deleteUser(id);
+    }
 }
