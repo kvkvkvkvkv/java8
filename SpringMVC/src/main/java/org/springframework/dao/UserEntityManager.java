@@ -13,6 +13,9 @@ import javax.persistence.spi.PersistenceProvider;
 @Service
 public class UserEntityManager {
 
+    //CRUD
+
+    //Create
     @PostConstruct
     public void init(){
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu");
@@ -36,6 +39,20 @@ public class UserEntityManager {
 
         entityManager.close( );
         entityManagerFactory.close();
+    }
+
+    //Read
+    public User readUser(Integer id){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+
+        User user = entityManager.find(User.class,id);
+
+        entityManager.getTransaction().commit();
+        entityManagerFactory.close();
+
+        return user;
     }
 
 }
