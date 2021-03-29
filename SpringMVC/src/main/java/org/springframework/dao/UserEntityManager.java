@@ -74,16 +74,28 @@ public class UserEntityManager {
         return users;
     }
 
-//    public User updateUser(){
-//
-//    }
-
     public User createUser(User user) {
         log.info(user.toString());
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         entityManager.persist(user);
+        entityManager.getTransaction().commit();
+        entityManagerFactory.close();
+
+        return user;
+    }
+
+    public User updateUser(User user) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+
+        User currentUser = entityManager.find(User.class,user.getUserId());
+        currentUser.setEmail(user.getEmail());
+        currentUser.setAge(user.getAge());
+        currentUser.setName(user.getName());
+
         entityManager.getTransaction().commit();
         entityManagerFactory.close();
 

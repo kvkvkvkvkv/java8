@@ -24,4 +24,8 @@ public class UserService {
     public User createUser(User user) {
         return userEntityManager.createUser(user);
     }
+
+    public User updateUser(User user) {
+        return userEntityManager.updateUser(user);
+    }
 }
