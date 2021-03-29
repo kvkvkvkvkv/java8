@@ -9,11 +9,14 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.spi.PersistenceProvider;
+import java.util.List;
+import java.util.logging.Logger;
 
 @Service
 public class UserEntityManager {
 
     //CRUD
+    Logger log = Logger.getLogger("UserEntityManager");
 
     //Create
     @PostConstruct
@@ -55,4 +58,35 @@ public class UserEntityManager {
         return user;
     }
 
+    //read
+    //query
+    public List<User> readUsers() {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+
+        Query query = entityManager.createQuery("Select u from User u");
+        List<User> users = query.getResultList();
+
+        entityManager.getTransaction().commit();
+        entityManagerFactory.close();
+
+        return users;
+    }
+
+//    public User updateUser(){
+//
+//    }
+
+    public User createUser(User user) {
+        log.info(user.toString());
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.persist(user);
+        entityManager.getTransaction().commit();
+        entityManagerFactory.close();
+
+        return user;
+    }
 }

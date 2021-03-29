@@ -3,11 +3,13 @@ package org.springframework.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
 @Table(name = "user")
+@Transactional
 public class User {
 
     @Id
