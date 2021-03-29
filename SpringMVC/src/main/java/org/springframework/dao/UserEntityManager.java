@@ -1,6 +1,7 @@
 package org.springframework.dao;
 
 import org.springframework.model.User;
+import org.springframework.model.UserProfile;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -30,12 +31,25 @@ public class UserEntityManager {
         user.setName("A");
         user.setEmail("a@gmail.com");
 
+        UserProfile userProfile = new UserProfile();
+        userProfile.setHobby("play");
+        userProfile.setYouTube("link1");
+
+        user.setUserProfile(userProfile);
+
         entityManager.persist(user);
 
         User user1 = new User();
         user1.setAge(11);
         user1.setName("B");
         user1.setEmail("b@gmail.com");
+
+        UserProfile userProfile1 = new UserProfile();
+        userProfile1.setHobby("music");
+        userProfile1.setYouTube("link2");
+
+        user1.setUserProfile(userProfile1);
+
         entityManager.persist(user1);
 
         entityManager.getTransaction().commit();

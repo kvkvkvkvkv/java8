@@ -14,18 +14,22 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "UserId")
+    @Column(name = "user_id")
     Integer userId;
 
     @NotNull
-    @Column(name = "Name")
+    @Column(name = "name")
     String name;
 
     @NotNull
-    @Column(name = "Age")
+    @Column(name = "age")
     Integer age;
 
     @NotNull
-    @Column(name = "Email")
+    @Column(name = "email")
     String email;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id") //name specified in table as foreign key
+    UserProfile userProfile;
 }
