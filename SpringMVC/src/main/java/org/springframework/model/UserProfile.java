@@ -20,6 +20,8 @@ public class UserProfile {
     @Column(name = "youtube")
     String youTube;
 
-    @OneToOne(mappedBy = "userProfile", cascade = CascadeType.ALL)//name in user class
+//    @OneToOne(mappedBy = "userProfile", cascade = CascadeType.ALL)//name in user class
+    @OneToOne(mappedBy = "userProfile", cascade = {CascadeType.DETACH, CascadeType.PERSIST, CascadeType.MERGE,
+    CascadeType.REFRESH})//name in user class
     User user;
 }

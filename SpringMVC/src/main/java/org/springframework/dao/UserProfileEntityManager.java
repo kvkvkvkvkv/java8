@@ -18,8 +18,11 @@ public class UserProfileEntityManager {
         entityManager.getTransaction().begin();
 
         UserProfile currentUser = entityManager.find(UserProfile.class,id);
-        entityManager.remove(currentUser);
 
+        //need to make it null if only userrporfile needs to be deled
+        currentUser.getUser().setUserProfile(null);
+
+        entityManager.remove(currentUser);
         entityManager.getTransaction().commit();
         entityManagerFactory.close();
     }
