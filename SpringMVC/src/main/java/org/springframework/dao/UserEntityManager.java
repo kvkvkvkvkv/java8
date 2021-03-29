@@ -25,9 +25,17 @@ public class UserEntityManager {
         user.setEmail("a@gmail.com");
 
         entityManager.persist(user);
+
+        User user1 = new User();
+        user1.setAge(11);
+        user1.setName("B");
+        user1.setEmail("b@gmail.com");
+        entityManager.persist(user);
+
         entityManager.getTransaction().commit();
 
         entityManager.close( );
         entityManagerFactory.close();
     }
+
 }
