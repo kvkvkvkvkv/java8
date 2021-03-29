@@ -72,5 +72,17 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.GONE);
     }
 
+    @GetMapping("/bi/{id}")
+    public ResponseEntity<?> biCond(@PathVariable Integer id){
+        userService.bicond(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/userProfile/{id}")
+    public  ResponseEntity<?> deleteUserProfile(@PathVariable Integer id){
+        userService.deleteUserProfile(id);
+        return new ResponseEntity<>(HttpStatus.GONE);
+    }
+
 
 }

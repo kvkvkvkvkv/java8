@@ -12,11 +12,14 @@ public class UserProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "profile_id")
-    String profileId;
+    Integer profileId;
 
     @Column(name = "hobby")
     String hobby;
 
     @Column(name = "youtube")
     String youTube;
+
+    @OneToOne(mappedBy = "userProfile", cascade = CascadeType.ALL)//name in user class
+    User user;
 }

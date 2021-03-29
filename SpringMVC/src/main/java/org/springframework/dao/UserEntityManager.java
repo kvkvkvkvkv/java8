@@ -1,5 +1,7 @@
 package org.springframework.dao;
 
+import org.springframework.controller.exception.EmployeeNotFoundException;
+import org.springframework.model.Student;
 import org.springframework.model.User;
 import org.springframework.model.UserProfile;
 import org.springframework.stereotype.Service;
@@ -10,6 +12,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.spi.PersistenceProvider;
+import java.rmi.StubNotFoundException;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -51,7 +54,6 @@ public class UserEntityManager {
         user1.setUserProfile(userProfile1);
 
         entityManager.persist(user1);
-
         entityManager.getTransaction().commit();
 
         entityManager.close( );
@@ -144,6 +146,25 @@ public class UserEntityManager {
 
         User currentUser = entityManager.find(User.class,id);
         entityManager.remove(currentUser);
+        entityManager.getTransaction().commit();
+        entityManagerFactory.close();
+    }
+
+    public void biDirection(Integer id){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+
+        UserProfile userProfile;
+        try {
+            userProfile = entityManager.find(UserProfile.class,id);
+        } catch (EmployeeNotFoundException e){
+            throw new EmployeeNotFoundException("Not found id "+id);
+        }
+
+        User user = userProfile.getUser();
+        user.setName(user.getName()+"new");
+
         entityManager.getTransaction().commit();
         entityManagerFactory.close();
     }
