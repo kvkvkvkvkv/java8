@@ -28,4 +28,8 @@ public class UserService {
     public User updateUser(User user) {
         return userEntityManager.updateUser(user);
     }
+
+    public User patchUser(User user, Integer id) {
+        return userEntityManager.patchUser(user,id);
+    }
 }

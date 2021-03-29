@@ -55,10 +55,16 @@ public class UserController {
         return ResponseEntity.created(location).body(newUser);
     }
 
-//    @GetMapping("/user")
-//    public  ResponseEntity<List<User>> users(){
-//        return ResponseEntity.ok(userService.getUsers());
-//    }
+    @PatchMapping("/user/{id}")
+    public  ResponseEntity<User> users(@RequestBody User user, @PathVariable Integer id){
+        User newUser = userService.patchUser(user,id);
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(newUser.getUserId())
+                .toUri();
+        return ResponseEntity.created(location).body(newUser);
+    }
 
 
 }

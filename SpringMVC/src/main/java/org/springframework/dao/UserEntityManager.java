@@ -92,9 +92,30 @@ public class UserEntityManager {
         entityManager.getTransaction().begin();
 
         User currentUser = entityManager.find(User.class,user.getUserId());
-        currentUser.setEmail(user.getEmail());
-        currentUser.setAge(user.getAge());
-        currentUser.setName(user.getName());
+        currentUser = user;
+
+        entityManager.getTransaction().commit();
+        entityManagerFactory.close();
+
+        return user;
+    }
+
+    public User patchUser(User user, Integer id) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+
+        User currentUser = entityManager.find(User.class,id);
+        log.info(currentUser.toString());
+        if(user.getAge()!=null){
+            currentUser.setAge(user.getAge());
+        }
+        if (user.getEmail()!=null){
+            currentUser.setEmail(user.getEmail());
+        }
+        if (user.getName()!=null){
+            currentUser.setName(user.getName());
+        }
 
         entityManager.getTransaction().commit();
         entityManagerFactory.close();
