@@ -24,6 +24,7 @@ public class UserCourseENtityManager {
         course.setName("Course 1");
         course.setUser(currentUser);
 
+        currentUser.addUserToCourse(course);
         entityManager.persist(course);
         entityManager.getTransaction().commit();
         entityManagerFactory.close();

@@ -57,4 +57,7 @@ public class UserService {
     public Course addUserToCourse(Integer id){
         return userCourseENtityManager.addUserCourse(id);
     }
+    public List<Course> getUserCourse(Integer id){
+        return userCourseENtityManager.getUserCourse(id);
+    }
 }

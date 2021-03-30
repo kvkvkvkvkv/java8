@@ -97,4 +97,9 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @GetMapping("/course/{id}")
+    public ResponseEntity<List<Course>> getUserCourse(@PathVariable Integer id){
+        List<Course> courses = userService.getUserCourse(id);
+        return new ResponseEntity<List<Course>>(courses,HttpStatus.OK);
+    }
 }
