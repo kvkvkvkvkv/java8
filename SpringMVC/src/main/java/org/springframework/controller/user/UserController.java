@@ -3,6 +3,7 @@ package org.springframework.controller.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.model.Course;
 import org.springframework.model.User;
 import org.springframework.service.user.UserService;
 import org.springframework.stereotype.Controller;
@@ -84,5 +85,16 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.GONE);
     }
 
+//    @PostMapping("/userCourse/{id}")
+//    public ResponseEntity<Course> addUserCourse(@PathVariable Integer id, @RequestBody Course course){
+//        Course addCourse = userService.addUserToCourse(id,course);
+//        return new ResponseEntity<>(addCourse,HttpStatus.OK);
+//    }
+
+    @GetMapping("/userCourse/{id}")
+    public ResponseEntity<Course> addUserCourse(@PathVariable Integer id){
+        userService.addUserToCourse(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 }

@@ -1,8 +1,10 @@
 package org.springframework.service.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.UserCourseENtityManager;
 import org.springframework.dao.UserEntityManager;
 import org.springframework.dao.UserProfileEntityManager;
+import org.springframework.model.Course;
 import org.springframework.model.User;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,9 @@ public class UserService {
 
     @Autowired
     UserProfileEntityManager userProfileEntityManager;
+
+    @Autowired
+    UserCourseENtityManager userCourseENtityManager;
 
     public User getUser(Integer id){
         return userEntityManager.readUser(id);
@@ -47,5 +52,9 @@ public class UserService {
 
     public void deleteUserProfile(Integer id) {
         userProfileEntityManager.deleteUserProfile(id);
+    }
+
+    public Course addUserToCourse(Integer id){
+        return userCourseENtityManager.addUserCourse(id);
     }
 }

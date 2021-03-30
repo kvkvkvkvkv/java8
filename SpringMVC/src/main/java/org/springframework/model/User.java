@@ -5,6 +5,8 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.transaction.Transactional;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -32,4 +34,17 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id") //name specified in table as foreign key
     UserProfile userProfile;
+
+    @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.MERGE,CascadeType.DETACH})
+    List<Course> courses;
+
+    public void addUserToCourse(Course course){
+
+        if (courses == null){
+            courses = new ArrayList<>();
+        }
+        course.setUser(this);
+        courses.add(course);
+    }
+
 }
