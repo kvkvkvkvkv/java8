@@ -102,4 +102,5 @@ public class UserController {
         List<Course> courses = userService.getUserCourse(id);
         return new ResponseEntity<List<Course>>(courses,HttpStatus.OK);
     }
+
 }

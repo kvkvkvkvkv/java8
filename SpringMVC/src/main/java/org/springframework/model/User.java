@@ -33,17 +33,14 @@ public class User {
     String email;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "profile_id") //name specified in table as foreign key
+    @JoinColumn(name = "profile_Id") //name specified in table as foreign key
     UserProfile userProfile;
 
     @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.MERGE,CascadeType.DETACH})
-    List<Course> courses;
+    @JsonIgnore
+    List<Course> courses =  new ArrayList<>();
 
     public void addUserToCourse(Course course){
-
-        if (courses == null){
-            courses = new ArrayList<>();
-        }
         course.setUser(this);
         courses.add(course);
     }
